@@ -51,6 +51,7 @@ class Application(Frame):
 
     def grade(self):
         self.grader.grade()
+        self.grader.saveGrades('results.txt')
 
     def openAssignments(self):
         self.outputText.set(self.grader.assignmentDir.openDir(askdirectory()))
@@ -60,6 +61,7 @@ class Application(Frame):
 
 if __name__ == "__main__":
     root = Tk()
+    root.iconbitmap('favicon.ico')
     app = Application(master=root)
     app.mainloop()
     try:

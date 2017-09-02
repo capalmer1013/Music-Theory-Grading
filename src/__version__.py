@@ -1,0 +1,8 @@
+__title__ = 'Music Theory Grader'
+__description__ = 'Automated Music Theory Grading'
+__url__ = 'http://github.com/capalmer1013/Music-Theory-Grading'
+__version__ = '0.1.0'
+__author__ = 'Chris Palmer'
+__author_email__ = 'capalmer1013@gmail.com'
+__license__ = 'GPL3'
+__copyright__ = 'Copyright 2017 Chris Palmer'
