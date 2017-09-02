@@ -1,40 +1,35 @@
-import pyforms
-from pyforms import BaseWidget
-from pyforms.Controls import ControlText
-from pyforms.Controls import ControlButton
+from Tkinter import Tk, Frame, Button
+from tkFileDialog import askopenfilename
 
-class Application(BaseWidget):
-    def __init__(self):
-        super(Application, self).__init__('Application')
 
-        self.mainmenu = [
-            { 'File': [
-                {'Open': self.__openEvent},
-                '-',
-                {'Save': self.__saveEvent},
-                {'Save as': self.__saveAsEvent}
-            ]},
-            {'Edit': [
-                {'Copy': self.__editEvent},
-                {'Paste': self.__pasteEvent}
-            ]}
-        ]
+class Application(Frame):
+    def __init__(self, master=None):
+        Frame.__init__(self, master)
+        self.pack()
+        self.QUIT = Button(self)
+        self.openKey = Button(self)
+        self.setQuit()
+        self.setOpenKey()
 
-    def __openEvent(self):
+    def setQuit(self):
+        self.QUIT["text"] = "QUIT"
+        self.QUIT["fg"] = "red"
+        self.QUIT["command"] = self.quit
+        self.QUIT.pack({"side": "left"})
+
+    def setOpenKey(self):
+        self.openKey["text"] = "Key",
+        self.openKey["command"] = self.openFile
+        self.openKey.pack({"side": "left"})
+
+    def setOpenAssignments(self):
         pass
 
-    def __saveEvent(self):
-        pass
+    def openFile(self):
+        print askopenfilename()
 
-    def __saveAsEvent(self):
-        pass
-
-    def __editEvent(self):
-        pass
-
-    def __pasteEvent(self):
-        pass
-
-#Execute the application
 if __name__ == "__main__":
-    pyforms.startApp(Application)
+    root = Tk()
+    app = Application(master=root)
+    app.mainloop()
+    root.destroy()
